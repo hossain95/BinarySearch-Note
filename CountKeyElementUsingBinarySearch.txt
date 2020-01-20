@@ -1,0 +1,34 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll BinarySearchKeyCount(ll a[], ll n, ll key)
+{
+   int p = -1, q = -1;
+   for(int i = n; i >= 1; i /= 2)
+   {
+       while((p+i) < n && a[p+i] < key)
+       {
+           p += i;
+       }
+       while((q+i) < n && a[q+i] <= key)
+       {
+           q += i;
+       }
+   }
+   return q-p;
+}
+int main()
+{
+    ll n;
+    cin >> n;
+    ll ar[n+5] = {};
+    for(int i = 0; i < n; i++)
+    {
+        cin >> ar[i];
+    }
+    ll key;
+    cin >> key;
+    cout << BinarySearchKeyCount(ar, n, key) << endl;
+    return 0;
+}
