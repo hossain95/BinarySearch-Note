@@ -1,0 +1,38 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+bool BinarySearch(ll a[], ll n, ll key)
+{
+    if(binary_search(a, a+n, key))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+int main()
+{
+    ll n;
+    cin >> n; 				// size of the array
+    ll ar[n+5] = {}; // array
+    for(int i = 0; i < n; i++)
+    {
+        cin >> ar[i];
+    }
+    sort(ar, ar+n);
+    ll key;				//the key element that we are searching
+    cin >> key;
+    if(BinarySearch(ar, n, key))
+    {
+        cout << "YES" << endl; 		// print yes when the element found
+    }
+    else
+    {
+        cout << "NO" << endl; 		// print no when the element not found
+    }
+    return 0;
+}
+					/*Binary_search check the key element exist or not in the if exist in the then return true or return false*/
